@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Users</h1>
+<h3>Listing Users</h3>
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -16,14 +14,19 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Change Password', edit_user_registration_path %></td>
+        <% if current_user.admin || user == current_user %>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <% end %>
+        <% unless current_user.admin %>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New User', new_user_path, class: "btn btn-primary" %>
+<% if current_user.admin? %>
+  <%= link_to 'New User', new_user_path, class: "btn btn-primary" %>
+<% end %>

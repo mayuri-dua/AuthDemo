@@ -1,0 +1,15 @@
+
+<% if user_signed_in? %>
+	Logged in as <%= current_user.name %><br>
+	<%= link_to "Home", root_path %> 	
+	| <%= link_to "Sign out", destroy_user_session_path, method: :delete %><br>
+	
+<% else %>
+	<%= link_to "Home", root_path %> 
+    <% if controller_name != 'sessions' %>
+		  | <%= link_to "Sign In", new_user_session_path %> 
+    <% end %>
+    <% if controller_name != 'registrations' %>
+      | <%= link_to "Sign up", new_user_registration_path %>
+    <% end %>
+<% end %>

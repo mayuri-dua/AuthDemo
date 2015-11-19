@@ -1,12 +1,21 @@
 class UsersController < ApplicationController
   
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:home]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   
+  def home
+
+  end
+
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    #show all users only if logged in user is an admin
+    if current_user.admin
+      @users = User.all
+    else
+      @users = [ current_user ]
+    end
   end
 
   # GET /users/1

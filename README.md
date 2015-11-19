@@ -51,7 +51,7 @@ rails s
 
 App has guard setup to run rspec along with factory-girl. Currently, minor coverage has been given to models. 
 
-# To run the tests, run following in a separate terminal using gemset MyDemo
+### To run the tests, run following in a separate terminal using gemset MyDemo
 
 ```bash
 bundle exec guard

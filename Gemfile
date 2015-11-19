@@ -32,7 +32,9 @@ gem 'bootstrap_form'
 gem 'autoprefixer-rails'
 
 gem 'omniauth'
-gem 'omniauth-google'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -43,7 +45,8 @@ gem 'omniauth-google'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'guard', group: :development 
+gem 'guard', group: :development
+gem 'guard-rspec', require: false, group: :development 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

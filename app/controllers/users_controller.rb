@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    Rails.logger.info "In create method"
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -58,6 +59,20 @@ class UsersController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  # GET/PATCH /users/:id/finish_signup
+  def finish_signup
+    # authorize! :update, @user 
+    if request.patch? && params[:user] #&& params[:user][:email]
+      @user = User.find(params[:id])
+      if @user.update(user_params)       
+        sign_in(@user, :bypass => true)
+        redirect_to @user, notice: 'Your profile was successfully updated.'
+      else
+        @show_errors = true
       end
     end
   end

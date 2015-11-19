@@ -10,5 +10,5 @@
 #create an admin user
 #
 adminuser = User.create!(name: "admin", email: "admin@example.com", password: "admin!@123", 
-						password_confirmation: "admin!@123", admin: true)
+						password_confirmation: "admin!@123", admin: true )
 

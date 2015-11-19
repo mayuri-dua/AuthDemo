@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, controllers: { registrations: "users/registrations", omniauth_callbacks: 'omniauth_callbacks' }
   
   
   # The priority is based upon order of creation: first created -> highest priority.
@@ -9,6 +9,9 @@ Rails.application.routes.draw do
    root 'users#home'
 
    resources :users
+   
+   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup   
+   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

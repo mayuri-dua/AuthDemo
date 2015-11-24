@@ -41,6 +41,16 @@ rake db:seed
 
 Admin user data has been seeded already. More users can be registered from the user interface.
 
+## Setup cron for running background jobs
+```bash
+whenever --update-crontab
+```
+to make sure the job was added:
+
+```bash
+crontab -e
+```
+
 ## To run application on localhost
 
 ```bash
@@ -56,6 +66,7 @@ App has guard setup to run rspec along with factory-girl. Currently, minor cover
 ```bash
 bundle exec guard
 ```
+
 
 
 

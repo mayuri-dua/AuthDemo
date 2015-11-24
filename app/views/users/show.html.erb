@@ -1,25 +1,5 @@
-<h3>User details</h3>
+<h3>Hi <%= current_user.name %>!</h3>
+<p> Track your important events and dates here.. and we would make sure you nevernever miss them again! </p> 
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        <td><%= @user.name %></td>
-        <td><%= @user.email %></td>      
-      </tr>
-    
-  </tbody>
-</table>
-
+<%= link_to "Add an Event", new_event_path,  class: "btn btn-primary" %> &nbsp; <%= link_to "Update Profile", users_path,  class: "btn btn-primary" %>
 <br>
-<% if current_user.admin? %>
-  <%= link_to 'New User', new_user_path, class: "btn btn-primary" %>
-<% end %>

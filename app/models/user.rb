@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   validates_format_of :email, :with => Devise::email_regexp, on: :create
   
+  has_many :events
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 

@@ -1,0 +1,23 @@
+<h3>Your registered events</h3>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>      
+      <th>Details</th>
+      <th>Event time</th>
+      <th colspan="2">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+	  <tr>	  	
+	    <td><%= @event.details %></td>
+	    <td><%= display_date(@event.occurs_at) %></td>               
+			<td><%= link_to 'Edit', edit_event_path(@event) %></td>                
+	    <td><%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+  </tbody>
+</table>
+
+<br>
+ <%= link_to 'Add An Event', new_event_path, class: "btn btn-primary" %>

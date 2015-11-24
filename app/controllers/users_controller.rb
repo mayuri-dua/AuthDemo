@@ -63,6 +63,7 @@ class UsersController < ApplicationController
     end
   end
   
+  #for FB signup
   # GET/PATCH /users/:id/finish_signup
   def finish_signup
     # authorize! :update, @user 

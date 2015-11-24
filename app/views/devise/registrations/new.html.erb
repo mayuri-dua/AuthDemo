@@ -39,7 +39,7 @@
 
       <div class="actions form-group">
     	  <div class="col-sm-offset-2 col-sm-10">
-          <%= f.submit "Sign up", class: 'btn btn-primary' %>
+          <%= f.submit "Sign up", class: 'btn btn-primary' %> &nbsp; OR &nbsp; <%=  link_to "Sign in using Facebook", user_omniauth_authorize_url(:facebook) , class: "btn btn-primary"%>
         </div>
       </div> <br/>     
     <% end %>      
